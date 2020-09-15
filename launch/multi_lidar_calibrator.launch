@@ -1,0 +1,58 @@
+<launch>
+    <arg name="first_output_topic" default="/first_calibrated/points_raw" />
+    <arg name="second_output_topic" default="/second_calibrated/points_raw" />
+    <arg name="total_output_topic" default="/points_raw" />
+    <arg name="points_parent_src" default="/vlp1/points_raw" />
+    <arg name="points_first_child_src" default="/vlp3/points_raw" />
+    <arg name="points_second_child_src" default="/vlp2/points_raw" />
+
+    <arg name="voxel_size" default="1.0" />
+    <arg name="ndt_epsilon" default="0.01" />
+    <arg name="ndt_step_size" default="0.1" />
+    <arg name="ndt_resolution" default="1.0" />
+    <arg name="ndt_iterations" default="400" />
+    
+    <arg name="first_x" default="0" />
+    <arg name="first_y" default="-0.6093" />
+    <arg name="first_z" default="-0.20352" />
+    <arg name="first_roll" default="0.00174533" />
+    <arg name="first_pitch" default="0.436332" />
+    <arg name="first_yaw" default="-1.5708" />
+
+    <arg name="second_x" default="0" />
+    <arg name="second_y" default="0.6093" />
+    <arg name="second_z" default="-0.20352" />
+    <arg name="second_roll" default="0.0314159" />
+    <arg name="second_pitch" default="0.436332" />
+    <arg name="second_yaw" default="1.5708" />
+
+    <node pkg="multi_lidar_calibrator" type="multi_lidar_calibrator" name="multi_lidar_calibrator" output="screen">
+        <param name="first_output_topic" value="$(arg first_output_topic)" />
+        <param name="second_output_topic" value="$(arg second_output_topic)" />
+        <param name="total_output_topic" value="$(arg total_output_topic)" />
+        <param name="points_parent_src" value="$(arg points_parent_src)" />
+        <param name="points_first_child_src" value="$(arg points_first_child_src)" />
+        <param name="points_second_child_src" value="$(arg points_second_child_src)" />
+
+        <param name="voxel_size" value="$(arg voxel_size)" />
+        <param name="ndt_epsilon" value="$(arg ndt_epsilon)" />
+        <param name="ndt_step_size" value="$(arg ndt_step_size)" />
+        <param name="ndt_resolution" value="$(arg ndt_resolution)" />
+        <param name="ndt_iterations" value="$(arg ndt_iterations)" />
+
+        <param name="first_x" value="$(arg first_x)" />
+        <param name="first_y" value="$(arg first_y)" />
+        <param name="first_z" value="$(arg first_z)" />
+        <param name="first_roll" value="$(arg first_roll)" />
+        <param name="first_pitch" value="$(arg first_pitch)" />
+        <param name="first_yaw" value="$(arg first_yaw)" />
+
+        <param name="second_x" value="$(arg second_x)" />
+        <param name="second_y" value="$(arg second_y)" />
+        <param name="second_z" value="$(arg second_z)" />
+        <param name="second_roll" value="$(arg second_roll)" />
+        <param name="second_pitch" value="$(arg second_pitch)" />
+        <param name="second_yaw" value="$(arg second_yaw)" />
+    </node>
+
+</launch>
